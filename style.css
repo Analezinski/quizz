@@ -1,110 +1,118 @@
-/* Importação de fonte do Google Fonts (opcional, mas deixa mais bonito!) */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+/* style.css */
 
-/* Estilos Globais e Reset Básico */
-* {
-    box-sizing: border-box; /* Facilita o controle de padding e border */
-    margin: 0;
-    padding: 0;
+/* Cores da paleta (tons de marrom) */
+:root {
+    --cor-fundo-claro: #F5DEB3; /* Wheat - Um marrom bem clarinho, quase creme */
+    --cor-fundo-medio: #D2B48C; /* Tan - Um marrom médio, tipo areia */
+    --cor-fundo-escuro: #8B4513; /* SaddleBrown - Um marrom mais escuro e rico */
+    --cor-texto-principal: #4A2C00; /* Um marrom bem escuro, quase preto */
+    --cor-borda: #A0522D; /* Sienna - Um marrom avermelhado para detalhes */
+    --cor-botao-texto: #FFFFFF; /* Branco para o texto dos botões escuros */
+    --cor-acerto: #4CAF50; /* Verde para acerto (pode ser um marrom esverdeado se quiser) */
+    --cor-erro: #D32F2F;   /* Vermelho para erro (pode ser um marrom avermelhado) */
 }
 
 body {
-    font-family: 'Poppins', sans-serif; /* Fonte moderna e legível */
-    background: linear-gradient(135deg, #8e72f2 10%, #3838aa 100%); /* Fundo gradiente vibrante */
-    color: #333; /* Cor de texto padrão */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--cor-fundo-claro); /* Fundo geral claro */
+    color: var(--cor-texto-principal); /* Cor do texto principal */
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100vh; /* Ocupa a altura total da viewport */
-    padding: 20px; /* Um pouco de padding para telas menores */
+    min-height: 100vh; /* Ocupa a altura total da tela */
+    margin: 0;
+    padding: 20px;
+    box-sizing: border-box; /* Para incluir padding na largura/altura */
 }
 
-/* Contêiner Principal do Quiz */
-.quiz-container {
-    background-color: #fff;
-    border-radius: 15px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); /* Sombra suave */
-    width: 100%;
-    max-width: 600px; /* Largura máxima para desktops */
+.quiz-container,
+#result-container {
+    background-color: var(--cor-fundo-medio); /* Fundo do container do quiz */
+    border-radius: 12px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Sombra suave */
     padding: 30px;
+    width: 100%;
+    max-width: 600px;
     text-align: center;
+    border: 2px solid var(--cor-borda); /* Borda sutil */
 }
 
-h1 {
-    color: #62da52; /* Cor do título principal */
+h1, h2 {
+    color: var(--cor-fundo-escuro); /* Títulos em marrom mais escuro */
     margin-bottom: 25px;
-    font-size: 2.5em;
-}
-
-h2 {
-    color: #8f8f8f;
-    margin-bottom: 20px;
-    font-size: 1.8em;
+    font-size: 2em;
 }
 
 p {
     font-size: 1.1em;
     line-height: 1.6;
-    margin-bottom: 20px;
 }
 
-/* Estilos para as Telas (Início, Quiz, Resultados) */
-.screen {
-    display: none; /* Todas as telas começam escondidas */
-}
-
-.screen.active {
-    display: block; /* A tela com a classe 'active' é mostrada */
-}
-
-/* Botões em Geral */
-button {
-    background-color: #5150D8;
-    color: #fff;
-    border: none;
-    border-radius: 8px;
-    padding: 12px 25px;
-    font-size: 1.1em;
-    cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.2s ease; /* Animação suave */
-    outline: none; /* Remove o contorno ao focar */
-}
-
-button:hover:not(:disabled) {
-    background-color: #6a69eb; /* Cor mais clara no hover */
-    transform: translateY(-2px); /* Efeito de "levantar" */
-}
-
-button:disabled {
-    background-color: #cccccc;
-    cursor: not-allowed;
-}
-
-/* Contêiner das Opções de Resposta */
-.options-container {
+#options-container {
     display: flex;
-    flex-direction: column; /* Opções em coluna */
-    gap: 15px; /* Espaçamento entre as opções */
+    flex-direction: column;
+    gap: 15px; /* Espaçamento entre os botões de opção */
     margin-top: 25px;
     margin-bottom: 30px;
 }
 
-/* Botões de Opção Individual */
-.option-button {
-    background-color: #f0f0f0;
-    color: #333;
-    border: 2px solid #ddd;
-    text-align: left; /* Texto alinhado à esquerda */
-    padding: 15px 20px;
-    font-size: 1.05em;
-    border-radius: 10px;
-    transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+.option-button,
+#next-button,
+#restart-button {
+    background-color: var(--cor-fundo-escuro); /* Fundo dos botões em marrom escuro */
+    color: var(--cor-botao-texto); /* Texto dos botões em branco */
+    border: none;
+    border-radius: 8px;
+    padding: 15px 25px;
+    font-size: 1.1em;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Transição suave */
+    width: 100%; /* Botões ocupam a largura total */
+    box-sizing: border-box;
 }
 
-.option-button:hover:not(:disabled) {
-    background-color: #e0e0e0;
-    border-color: #c0c0c0;
+.option-button:hover,
+#next-button:hover,
+#restart-button:hover {
+    background-color: var(--cor-borda); /* Marrom avermelhado ao passar o mouse */
+    transform: translateY(-2px); /* Efeito de "levantar" */
 }
 
-/* Feedback visual para respostas (adicionados via JavaScript) */
-.option-button
+.option-button:active,
+#next-button:active,
+#restart-button:active {
+    transform: translateY(0); /* Volta ao normal ao clicar */
+}
+
+.option-button:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+}
+
+/* Estilos para feedback de resposta */
+.option-button.correct {
+    background-color: var(--cor-acerto); /* Verde para resposta correta */
+    color: var(--cor-botao-texto);
+    font-weight: bold;
+    border: 2px solid darken(var(--cor-acerto), 10%); /* Borda mais escura */
+}
+
+.option-button.incorrect {
+    background-color: var(--cor-erro); /* Vermelho para resposta incorreta */
+    color: var(--cor-botao-texto);
+    font-weight: bold;
+    border: 2px solid darken(var(--cor-erro), 10%); /* Borda mais escura */
+}
+
+/* Estilos para o botão "Próxima" e "Reiniciar" */
+#next-button, #restart-button {
+    margin-top: 20px;
+    padding: 18px 30px;
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+/* Estilos para o container de resultados */
+#result-container h2 {
+    color: var(--cor-fundo-escuro);
+    margin-bottom:
