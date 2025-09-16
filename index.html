@@ -3,43 +3,84 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quiz de Curiosidades!</title>
-    <!-- Link para o arquivo CSS para estilização -->
+    <title>Quiz de História</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
     <div class="quiz-container">
-        <h1>Quiz de Curiosidades!</h1>
-
-        <!-- Tela de Boas-Vindas / Início do Quiz -->
-        <div id="start-screen" class="screen active">
-            <p>Teste seus conhecimentos com 10 perguntas super interessantes!</p>
-            <button id="start-button">Começar Quiz</button>
-        </div>
-
-        <!-- Tela do Quiz (onde as perguntas serão exibidas) -->
-        <div id="quiz-screen" class="screen">
-            <h2 id="question-text"></h2>
-            <div id="options-container" class="options-container">
-                <!-- As opções de resposta serão injetadas aqui pelo JavaScript -->
+        <h1>Quiz de História</h1>
+        <div id="question-container">
+            <p id="question-text">Carregando pergunta...</p>
+            <div id="options-container" class="options">
+                <!-- As opções serão carregadas aqui pelo JavaScript -->
             </div>
-            <div class="quiz-footer">
-                <span id="question-number">Pergunta X de Y</span>
-                <button id="next-button" disabled>Próxima Pergunta</button>
-            </div>
+            <button id="next-button">Próxima Pergunta</button>
         </div>
-
-        <!-- Tela de Resultados -->
-        <div id="results-screen" class="screen">
+        <div id="result-container" style="display: none;">
             <h2>Quiz Finalizado!</h2>
-            <p>Sua pontuação final: <span id="final-score">0</span> de 10</p>
-            <p id="feedback-message"></p>
+            <p>Você acertou <span id="score">0</span> de <span id="total-questions">10</span> perguntas.</p>
             <button id="restart-button">Jogar Novamente</button>
         </div>
     </div>
 
-    <!-- Links para os arquivos JavaScript (a ordem importa!) -->
-    <script src="questions.js"></script> <!-- Primeiro as perguntas -->
-    <script src="script.js"></script>   <!-- Depois a lógica do quiz -->
+    <script>
+        // Este é o código JavaScript com as perguntas, agora dentro do index.html
+        const questions = [
+            {
+                question: "Qual civilização antiga construiu as pirâmides do Egito?",
+                options: ["Romanos", "Gregos", "Egípcios", "Mesopotâmicos"],
+                correctAnswer: 2 // Índice da resposta correta (Egípcios)
+            },
+            {
+                question: "Quem foi o primeiro presidente dos Estados Unidos?",
+                options: ["Abraham Lincoln", "George Washington", "Thomas Jefferson", "John Adams"],
+                correctAnswer: 1 // Índice da resposta correta (George Washington)
+            },
+            {
+                question: "Em que ano a Proclamação da República foi feita no Brasil?",
+                options: ["1822", "1889", "1900", "1865"],
+                correctAnswer: 1 // Índice da resposta correta (1889)
+            },
+            {
+                question: "Qual navegador português chegou ao Brasil em 1500?",
+                options: ["Vasco da Gama", "Cristóvão Colombo", "Fernão de Magalhães", "Pedro Álvares Cabral"],
+                correctAnswer: 3 // Índice da resposta correta (Pedro Álvares Cabral)
+            },
+            {
+                question: "Qual império foi governado por Júlio César?",
+                options: ["Império Persa", "Império Romano", "Império Otomano", "Império Mongol"],
+                correctAnswer: 1 // Índice da resposta correta (Império Romano)
+            },
+            {
+                question: "Qual foi a principal causa da Primeira Guerra Mundial?",
+                options: ["Ataque a Pearl Harbor", "Crise de 1929", "Assassinato do Arquiduque Francisco Ferdinando", "Guerra Fria"],
+                correctAnswer: 2 // Índice da resposta correta (Assassinato do Arquiduque Francisco Ferdinando)
+            },
+            {
+                question: "Quem pintou a Mona Lisa?",
+                options: ["Vincent van Gogh", "Pablo Picasso", "Leonardo da Vinci", "Michelangelo"],
+                correctAnswer: 2 // Índice da resposta correta (Leonardo da Vinci)
+            },
+            {
+                question: "Qual evento marcou o início da Idade Média?",
+                options: ["Queda do Império Romano do Ocidente", "Descoberta da América", "Revolução Francesa", "Invenção da imprensa"],
+                correctAnswer: 0 // Índice da resposta correta (Queda do Império Romano do Ocidente)
+            },
+            {
+                question: "Quem foi o líder da Índia que defendeu a não-violência?",
+                options: ["Nelson Mandela", "Martin Luther King Jr.", "Mahatma Gandhi", "Che Guevara"],
+                correctAnswer: 2 // Índice da resposta correta (Mahatma Gandhi)
+            },
+            {
+                question: "Qual foi o principal objetivo da Inconfidência Mineira?",
+                options: ["Abolir a escravidão", "Proclamar a independência do Brasil", "Revoltar-se contra a Coroa Portuguesa", "Estabelecer uma monarquia constitucional"],
+                correctAnswer: 2 // Índice da resposta correta (Revoltar-se contra a Coroa Portuguesa)
+            }
+        ];
+    </script>
+    <!-- O seu script.js (onde estará a lógica do quiz) deve vir DEPOIS das perguntas -->
+    <script src="script.js"></script>
+
 </body>
 </html>
