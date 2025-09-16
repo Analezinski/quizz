@@ -1,0 +1,110 @@
+/* Importação de fonte do Google Fonts (opcional, mas deixa mais bonito!) */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+
+/* Estilos Globais e Reset Básico */
+* {
+    box-sizing: border-box; /* Facilita o controle de padding e border */
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Poppins', sans-serif; /* Fonte moderna e legível */
+    background: linear-gradient(135deg, #72EDF2 10%, #5150D8 100%); /* Fundo gradiente vibrante */
+    color: #333; /* Cor de texto padrão */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; /* Ocupa a altura total da viewport */
+    padding: 20px; /* Um pouco de padding para telas menores */
+}
+
+/* Contêiner Principal do Quiz */
+.quiz-container {
+    background-color: #fff;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    width: 100%;
+    max-width: 600px; /* Largura máxima para desktops */
+    padding: 30px;
+    text-align: center;
+}
+
+h1 {
+    color: #5150D8; /* Cor do título principal */
+    margin-bottom: 25px;
+    font-size: 2.5em;
+}
+
+h2 {
+    color: #4A4A4A;
+    margin-bottom: 20px;
+    font-size: 1.8em;
+}
+
+p {
+    font-size: 1.1em;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+/* Estilos para as Telas (Início, Quiz, Resultados) */
+.screen {
+    display: none; /* Todas as telas começam escondidas */
+}
+
+.screen.active {
+    display: block; /* A tela com a classe 'active' é mostrada */
+}
+
+/* Botões em Geral */
+button {
+    background-color: #5150D8;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 12px 25px;
+    font-size: 1.1em;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Animação suave */
+    outline: none; /* Remove o contorno ao focar */
+}
+
+button:hover:not(:disabled) {
+    background-color: #6a69eb; /* Cor mais clara no hover */
+    transform: translateY(-2px); /* Efeito de "levantar" */
+}
+
+button:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+}
+
+/* Contêiner das Opções de Resposta */
+.options-container {
+    display: flex;
+    flex-direction: column; /* Opções em coluna */
+    gap: 15px; /* Espaçamento entre as opções */
+    margin-top: 25px;
+    margin-bottom: 30px;
+}
+
+/* Botões de Opção Individual */
+.option-button {
+    background-color: #f0f0f0;
+    color: #333;
+    border: 2px solid #ddd;
+    text-align: left; /* Texto alinhado à esquerda */
+    padding: 15px 20px;
+    font-size: 1.05em;
+    border-radius: 10px;
+    transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+}
+
+.option-button:hover:not(:disabled) {
+    background-color: #e0e0e0;
+    border-color: #c0c0c0;
+}
+
+/* Feedback visual para respostas (adicionados via JavaScript) */
+.option-button

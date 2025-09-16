@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz de Curiosidades!</title>
+    <!-- Link para o arquivo CSS para estilização -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="quiz-container">
+        <h1>Quiz de Curiosidades!</h1>
+
+        <!-- Tela de Boas-Vindas / Início do Quiz -->
+        <div id="start-screen" class="screen active">
+            <p>Teste seus conhecimentos com 10 perguntas super interessantes!</p>
+            <button id="start-button">Começar Quiz</button>
+        </div>
+
+        <!-- Tela do Quiz (onde as perguntas serão exibidas) -->
+        <div id="quiz-screen" class="screen">
+            <h2 id="question-text"></h2>
+            <div id="options-container" class="options-container">
+                <!-- As opções de resposta serão injetadas aqui pelo JavaScript -->
+            </div>
+            <div class="quiz-footer">
+                <span id="question-number">Pergunta X de Y</span>
+                <button id="next-button" disabled>Próxima Pergunta</button>
+            </div>
+        </div>
+
+        <!-- Tela de Resultados -->
+        <div id="results-screen" class="screen">
+            <h2>Quiz Finalizado!</h2>
+            <p>Sua pontuação final: <span id="final-score">0</span> de 10</p>
+            <p id="feedback-message"></p>
+            <button id="restart-button">Jogar Novamente</button>
+        </div>
+    </div>
+
+    <!-- Links para os arquivos JavaScript (a ordem importa!) -->
+    <script src="questions.js"></script> <!-- Primeiro as perguntas -->
+    <script src="script.js"></script>   <!-- Depois a lógica do quiz -->
+</body>
+</html>
